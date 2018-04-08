@@ -6,7 +6,7 @@ import (
 
 	"golang.org/x/crypto/ripemd160"
 
-	. "github.com/tendermint/tmlibs/common"
+	. "github.com/Baptist-Publication/chorus-module/lib/go-common"
 
 	"github.com/golang/protobuf/proto"
 	pb "github.com/Baptist-Publication/chorus-module/xlib/iavl/pb"

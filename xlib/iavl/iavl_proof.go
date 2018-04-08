@@ -6,8 +6,8 @@ import (
 	"golang.org/x/crypto/ripemd160"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/tendermint/go-wire"
-	. "github.com/tendermint/tmlibs/common"
+	"github.com/Baptist-Publication/chorus-module/lib/go-wire"
+	. "github.com/Baptist-Publication/chorus-module/lib/go-common"
 	pb "github.com/Baptist-Publication/chorus-module/xlib/iavl/pb"
 )
 

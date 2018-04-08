@@ -18,7 +18,7 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/tendermint/ed25519"
+	"github.com/Baptist-Publication/chorus-module/lib/ed25519"
 	"github.com/Baptist-Publication/chorus-module/lib/go-wire"
 )
 

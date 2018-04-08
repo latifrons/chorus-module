@@ -6,9 +6,9 @@ import (
 	"sync"
 
 	"github.com/golang/protobuf/proto"
-	. "github.com/tendermint/tmlibs/common"
-	dbm "github.com/tendermint/tmlibs/db"
-	"github.com/tendermint/tmlibs/merkle"
+	. "github.com/Baptist-Publication/chorus-module/lib/go-common"
+	dbm "github.com/Baptist-Publication/chorus-module/lib/go-db"
+	"github.com/Baptist-Publication/chorus-module/lib/go-merkle"
 	pb "github.com/Baptist-Publication/chorus-module/xlib/iavl/pb"
 )
 
@@ -86,10 +86,10 @@ func (t *IAVLTree) Has(key []byte) bool {
 	return t.root.has(t, key)
 }
 
-func (t *IAVLTree) Proof(key []byte) (value []byte, proofBytes []byte, exists bool) {
-	value, proof := t.ConstructProof(key)
+func (t *IAVLTree) Proof(key []byte) (proofBytes []byte, exists bool) {
+	_, proof := t.ConstructProof(key)
 	if proof == nil {
-		return nil, nil, false
+		return nil, false
 	}
 
 	//proofBytes = wire.BinaryBytes(proof)
@@ -112,7 +112,7 @@ func (t *IAVLTree) Proof(key []byte) (value []byte, proofBytes []byte, exists bo
 	if err != nil {
 		// panic
 	}
-	return value, proofBytes, true
+	return proofBytes, true
 }
 
 func (t *IAVLTree) Set(key []byte, value []byte) (updated bool) {
@@ -340,7 +340,7 @@ func (ndb *nodeDB) Commit() {
 	}
 	// Write saves & orphan deletes
 	ndb.batch.Write()
-	ndb.db.SetSync(nil, nil)
+	//ndb.db.SetSync(nil, nil)
 	ndb.batch = ndb.db.NewBatch()
 	// Shift orphans
 	ndb.orphansPrev = ndb.orphans

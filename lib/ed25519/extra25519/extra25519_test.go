@@ -9,7 +9,7 @@ import (
 	"crypto/rand"
 	"testing"
 
-	"github.com/tendermint/ed25519"
+	"github.com/Baptist-Publication/chorus-module/lib/ed25519"
 	"golang.org/x/crypto/curve25519"
 )
 
